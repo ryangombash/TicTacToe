@@ -46,7 +46,22 @@ public class MainActivity extends AppCompatActivity {
                 gridLayout.addView(buttons[row][col], w, w);
             }
         }
+        status = new TextView( this );
+        GridLayout.Spec rowSpec = GridLayout.spec( TicTacToe.SIDE, 1 );
+        GridLayout.Spec columnSpec = GridLayout.spec( 0, TicTacToe.SIDE );
+        GridLayout.LayoutParams lpStatus
+                = new GridLayout.LayoutParams( rowSpec, columnSpec );
+        status.setLayoutParams( lpStatus );
 
+        status.setWidth( TicTacToe.SIDE * w );
+        status.setHeight( w );
+        status.setGravity( Gravity.CENTER );
+        status.setBackgroundColor( Color.GREEN );
+        status.setTextSize( ( int ) ( w * .15 ) );
+        status.setText( tttGame.result( ) );
+
+        gridLayout.addView( status );
+        
 
         setContentView(gridLayout);
 
